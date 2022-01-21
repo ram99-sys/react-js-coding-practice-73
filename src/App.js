@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import {Switch, Route, Redirect} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom'
 import './App.css'
 import Login from './components/Login'
 import Home from './components/Home'
@@ -20,6 +20,7 @@ class App extends Component {
 
   render() {
     const {darkTheme} = this.state
+
     return (
       <NxtwatchContext.Provider
         value={{

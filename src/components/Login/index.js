@@ -18,8 +18,8 @@ import {
 const LIGHT_THEME_IMAGE =
   'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
 
-const DARK_THEME_IMAGE =
-  'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
+// const DARK_THEME_IMAGE =
+//   'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
 
 class Login extends Component {
   state = {

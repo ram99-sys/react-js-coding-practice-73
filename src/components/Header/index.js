@@ -27,13 +27,17 @@ const Header = () => (
       }
 
       return (
-        <HeaderContainer>
+        <HeaderContainer bgColor={darkTheme ? '#181818' : '#f4f4f4'}>
           <Image
             src={darkTheme ? DARK_THEME_IMAGE : LIGHT_THEME_IMAGE}
             alt="nxt watch logo"
           />
-          <RightContainer>
-            <ThemeButton type="button" onClick={onClickThemeButton}>
+          <RightContainer darkTheme>
+            <ThemeButton
+              type="button"
+              onClick={onClickThemeButton}
+              color={darkTheme ? '#f9f9f9' : ''}
+            >
               {darkTheme ? (
                 <IoMdSunny fontSize={30} />
               ) : (
@@ -44,7 +48,13 @@ const Header = () => (
               src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
               alt="profile"
             />
-            <LogoutButton type="button">Logout</LogoutButton>
+            <LogoutButton
+              type="button"
+              border={darkTheme ? '#ffffff' : ' #4f46e5'}
+              color={darkTheme ? '#ffffff' : ' #4f46e5'}
+            >
+              Logout
+            </LogoutButton>
           </RightContainer>
         </HeaderContainer>
       )

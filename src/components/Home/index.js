@@ -1,12 +1,28 @@
 import {Component} from 'react'
 import Header from '../Header'
+import Banner from '../Banner'
+import {
+  HomeContainer,
+  BodySection,
+  SidebarContainer,
+  ContentSection,
+} from './styledComponents'
+import Sidebar from '../Sidebar'
 
 class Home extends Component {
   render() {
     return (
-      <div>
+      <HomeContainer data-testid="home">
         <Header />
-      </div>
+        <BodySection>
+          <SidebarContainer>
+            <Sidebar />
+          </SidebarContainer>
+          <ContentSection>
+            <Banner />
+          </ContentSection>
+        </BodySection>
+      </HomeContainer>
     )
   }
 }

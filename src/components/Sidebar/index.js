@@ -24,7 +24,7 @@ class Sidebar extends Component {
     // console.log(this.props)
     const {location} = this.props
     const {pathname} = location
-    console.log(pathname)
+    // console.log(pathname)
 
     return (
       <NxtwatchContext.Consumer>

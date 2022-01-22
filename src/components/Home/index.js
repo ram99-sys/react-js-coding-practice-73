@@ -166,7 +166,7 @@ class Home extends Component {
 
   renderSuccessView = () => {
     const {homeVideosData} = this.state
-    console.log(homeVideosData)
+    // console.log(homeVideosData)
     const apiListLength = homeVideosData.length
 
     return apiListLength > 0 ? (

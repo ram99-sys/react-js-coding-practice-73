@@ -20,7 +20,7 @@ const Header = () => (
   <NxtwatchContext.Consumer>
     {value => {
       const {darkTheme, changeTheme} = value
-      console.log(darkTheme)
+      // console.log(darkTheme)
 
       const onClickThemeButton = () => {
         changeTheme()

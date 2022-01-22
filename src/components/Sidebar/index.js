@@ -156,7 +156,9 @@ class Sidebar extends Component {
                 </LinkItem>
               </LinksSection>
               <ContactUsSection>
-                <Heading>CONTACT US</Heading>
+                <Heading color={darkTheme ? '#ffffff' : '#000000'}>
+                  CONTACT US
+                </Heading>
                 <IconsSection>
                   <FooterIcons
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
@@ -171,7 +173,7 @@ class Sidebar extends Component {
                     alt="linked in logo"
                   />
                 </IconsSection>
-                <FooterText>
+                <FooterText color={darkTheme ? '#ffffff' : '#000000'}>
                   Enjoy! Now to see your channels and recommendations!
                 </FooterText>
               </ContactUsSection>

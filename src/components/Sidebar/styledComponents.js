@@ -67,6 +67,7 @@ export const SavedVideosIcon = styled(RiPlayListAddLine)`
 export const Heading = styled.h1`
   font-size: 20px;
   margin-bottom: 30px;
+  color: ${props => props.color};
 `
 export const FooterIcons = styled.img`
   height: 30px;
@@ -79,6 +80,7 @@ export const IconsSection = styled.div``
 export const FooterText = styled.p`
   font-size: 18px;
   margin-bottom: 30px;
+  color: ${props => props.color};
 `
 export const SidebarLink = styled(Link)`
   display: flex;

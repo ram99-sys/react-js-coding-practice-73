@@ -27,7 +27,7 @@ const Header = () => (
       }
 
       return (
-        <HeaderContainer bgColor={darkTheme ? '#181818' : '#f4f4f4'}>
+        <HeaderContainer bgColor={darkTheme ? '#181818' : '#ffffff'}>
           <Image
             src={darkTheme ? DARK_THEME_IMAGE : LIGHT_THEME_IMAGE}
             alt="nxt watch logo"

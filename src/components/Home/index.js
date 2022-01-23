@@ -218,9 +218,20 @@ class Home extends Component {
   )
 
   renderInProgressView = () => (
-    <LoaderContainer className="loader-container" data-testid="loader">
-      <Loader type="ThreeDots" color="#00306e" height="50" width="50" />
-    </LoaderContainer>
+    <NxtwatchContext.Consumer>
+      {value => {
+        const {darkTheme} = value
+        return (
+          <LoaderContainer
+            className="loader-container"
+            data-testid="loader"
+            bgColor={darkTheme ? '#000000' : '#f9f9f9'}
+          >
+            <Loader type="ThreeDots" color="#00306e" height="50" width="50" />
+          </LoaderContainer>
+        )
+      }}
+    </NxtwatchContext.Consumer>
   )
 
   renderResultsView = () => {

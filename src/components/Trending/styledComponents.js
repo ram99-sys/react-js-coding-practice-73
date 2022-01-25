@@ -42,4 +42,6 @@ export const DataContainer = styled.div``
 export const TendingApiListContainer = styled.div`
   background-color: ${props => props.bgColor};
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 `

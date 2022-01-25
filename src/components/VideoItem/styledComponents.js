@@ -75,6 +75,7 @@ export const IconButton = styled.button`
   cursor: pointer;
   display: flex;
   align-items: center;
+  color: ${props => props.color};
 `
 export const LikeIcon = styled(AiOutlineLike)`
   margin-right: 5px;

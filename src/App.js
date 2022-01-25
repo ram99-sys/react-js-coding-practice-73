@@ -12,20 +12,73 @@ import NxtwatchContext from './context/NxtwatchContext'
 
 // Replace your code here
 class App extends Component {
-  state = {darkTheme: false}
+  state = {
+    darkTheme: false,
+    savedVideosList: [],
+    isVideoSaved: false,
+    savedVideosListStatus: [],
+  }
 
   changeTheme = () => {
     this.setState(prevState => ({darkTheme: !prevState.darkTheme}))
   }
 
+  addingOrRemovingSavedVideo = async videoItemDetails => {
+    const {id, thumbnailUrl, title, isSaved} = videoItemDetails
+    const videosListStatus = {id, isSaved}
+    const {savedVideosListStatus} = this.state
+    const findVideoStatus = savedVideosListStatus.find(
+      eachVideoStatus => eachVideoStatus.id === id,
+    )
+    if (findVideoStatus) {
+      await this.setState(prevState => ({
+        savedVideosListStatus: prevState.savedVideosListStatus.map(
+          eachVideoStatus => {
+            if (eachVideoStatus.id === id) {
+              const updatedData = !eachVideoStatus.isSaved
+              return {...eachVideoStatus, isSaved: updatedData}
+            }
+            return eachVideoStatus
+          },
+        ),
+      }))
+    } else {
+      await this.setState({
+        savedVideosListStatus: [...savedVideosListStatus, videosListStatus],
+      })
+      await this.setState(prevState => ({
+        savedVideosListStatus: prevState.savedVideosListStatus.map(
+          eachVideoStatus => {
+            if (eachVideoStatus.id === id) {
+              const updatedData = !eachVideoStatus.isSaved
+              return {...eachVideoStatus, isSaved: updatedData}
+            }
+            return eachVideoStatus
+          },
+        ),
+      }))
+    }
+  }
+
   render() {
-    const {darkTheme} = this.state
+    const {
+      darkTheme,
+      isVideoSaved,
+      savedVideosList,
+      savedVideosListStatus,
+    } = this.state
+    // console.log(savedVideosList)
+    // console.log(savedVideosListStatus)
 
     return (
       <NxtwatchContext.Provider
         value={{
           darkTheme,
           changeTheme: this.changeTheme,
+          isVideoSaved,
+          savedVideosList,
+          savedVideosListStatus,
+          addingOrRemovingSavedVideo: this.addingOrRemovingSavedVideo,
         }}
       >
         <Switch>

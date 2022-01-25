@@ -72,11 +72,9 @@ class VideoItemDetails extends Component {
         title: updatedData.videoDetails.title,
         videoUrl: updatedData.videoDetails.video_url,
         viewCount: updatedData.videoDetails.view_count,
-        isLiked: false,
-        isDisliked: false,
         isSaved: false,
       }
-      console.log(videoItemData)
+      // console.log(videoItemData)
       this.setState({
         apiStatus: videoItemDetailsApiConstants.success,
         videoItemApiData: videoItemData,

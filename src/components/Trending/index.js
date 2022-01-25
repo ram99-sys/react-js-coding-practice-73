@@ -51,7 +51,7 @@ class Trending extends Component {
         publishedAt: eachObject.published_at,
         id: eachObject.id,
         thumbnailUrl: eachObject.thumbnail_url,
-        view_count: eachObject.view_count,
+        viewCount: eachObject.view_count,
         title: eachObject.title,
       }))
       console.log(trendingSectionApiData)

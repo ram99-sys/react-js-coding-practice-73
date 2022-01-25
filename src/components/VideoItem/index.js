@@ -92,14 +92,14 @@ class VideoItem extends Component {
           const findStatus = savedVideosListStatus.find(
             eachVideo => eachVideo.id === id,
           )
-          console.log(findStatus)
+          // console.log(findStatus)
           if (
             !(savedVideosListStatus.length === 0 || findStatus === undefined)
           ) {
             saved = findStatus.isSaved
           }
 
-          console.log(saved)
+          // console.log(saved)
 
           return (
             <VideoItemContainer bgColor={darkTheme ? '#0f0f0f' : '#f9f9f9'}>

@@ -24,9 +24,18 @@ class App extends Component {
   }
 
   addingOrRemovingSavedVideo = async videoItemDetails => {
-    const {id, thumbnailUrl, title, isSaved} = videoItemDetails
+    const {
+      id,
+      thumbnailUrl,
+      title,
+      isSaved,
+      viewCount,
+      publishedAt,
+      name,
+    } = videoItemDetails
     const videosListStatus = {id, isSaved}
-    const {savedVideosListStatus} = this.state
+    const VideosList = {id, thumbnailUrl, title, viewCount, publishedAt, name}
+    const {savedVideosListStatus, savedVideosList} = this.state
     const findVideoStatus = savedVideosListStatus.find(
       eachVideoStatus => eachVideoStatus.id === id,
     )
@@ -57,6 +66,15 @@ class App extends Component {
           },
         ),
       }))
+    }
+    const findVideo = savedVideosList.find(eachVideo => eachVideo.id === id)
+    if (findVideo) {
+      const updatedList = savedVideosList.filter(
+        eachObject => eachObject.id !== id,
+      )
+      await this.setState({savedVideosList: updatedList})
+    } else {
+      await this.setState({savedVideosList: [...savedVideosList, VideosList]})
     }
   }
 

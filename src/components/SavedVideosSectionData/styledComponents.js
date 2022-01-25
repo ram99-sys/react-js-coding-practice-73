@@ -18,11 +18,9 @@ export const ContentSection = styled.div`
 export const Heading = styled.h1`
   font-size: 24px;
   margin-top: 10px;
-  color: ${props => props.color};
 `
 export const ChannelName = styled.p`
   margin-top: 10px;
-  color: ${props => props.color};
 `
 
 export const ViewsAndPublishedDate = styled.div`
@@ -32,12 +30,12 @@ export const ViewsAndPublishedDate = styled.div`
 `
 export const NoOfViews = styled.p`
   font-size: 12px;
-  color: ${props => props.color};
+  color: #7e858e;
   margin-right: 8px;
 `
 export const PublishedDate = styled.p`
   font-size: 12px;
-  color: ${props => props.color};
+  color: #7e858e;
 `
 export const DotContainer = styled.div`
   display: flex;
@@ -48,7 +46,7 @@ export const Dot = styled.p`
   font-size: 30px;
   margin-top: -15px;
   margin-right: 2px;
-  color: ${props => props.color};
+  color: #7e858e;
 `
 export const NavLink = styled(Link)`
   text-decoration: none;

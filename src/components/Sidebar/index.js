@@ -32,7 +32,7 @@ class Sidebar extends Component {
           const {darkTheme} = value
 
           return (
-            <SidebarContainer bgColor={darkTheme ? '#181818' : '#ffffff'}>
+            <SidebarContainer bgColor={darkTheme ? '#212121' : '#ffffff'}>
               <LinksSection>
                 <LinkItem>
                   <SidebarLink

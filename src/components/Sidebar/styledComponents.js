@@ -64,7 +64,7 @@ export const SavedVideosIcon = styled(RiPlayListAddLine)`
   margin-right: 15px;
   color: ${props => props.color};
 `
-export const Heading = styled.h1`
+export const Heading = styled.p`
   font-size: 20px;
   margin-bottom: 30px;
   color: ${props => props.color};

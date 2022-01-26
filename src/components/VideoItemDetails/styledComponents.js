@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const HomeContainer = styled.div`
+export const VideoItemContainer = styled.div`
   min-height: 100vh;
 `
 

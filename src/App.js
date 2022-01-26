@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route, Redirect} from 'react-router-dom'
 import './App.css'
 import Login from './components/Login'
 import Home from './components/Home'
@@ -9,13 +9,13 @@ import Gaming from './components/Gaming'
 import VideoItemDetails from './components/VideoItemDetails'
 import ProtectedRoute from './components/ProtectedRoute'
 import NxtwatchContext from './context/NxtwatchContext'
+import NotFound from './components/NotFound'
 
 // Replace your code here
 class App extends Component {
   state = {
     darkTheme: false,
     savedVideosList: [],
-    isVideoSaved: false,
     savedVideosListStatus: [],
   }
 
@@ -79,12 +79,7 @@ class App extends Component {
   }
 
   render() {
-    const {
-      darkTheme,
-      isVideoSaved,
-      savedVideosList,
-      savedVideosListStatus,
-    } = this.state
+    const {darkTheme, savedVideosList, savedVideosListStatus} = this.state
     // console.log(savedVideosList)
     // console.log(savedVideosListStatus)
 
@@ -93,7 +88,6 @@ class App extends Component {
         value={{
           darkTheme,
           changeTheme: this.changeTheme,
-          isVideoSaved,
           savedVideosList,
           savedVideosListStatus,
           addingOrRemovingSavedVideo: this.addingOrRemovingSavedVideo,
@@ -110,6 +104,8 @@ class App extends Component {
             path="/videos/:id"
             component={VideoItemDetails}
           />
+          <Route path="/not-found" component={NotFound} />
+          <Redirect to="not-found" />
         </Switch>
       </NxtwatchContext.Provider>
     )

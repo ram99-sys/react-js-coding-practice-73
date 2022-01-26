@@ -17,7 +17,7 @@ export const LogoAndCloseContainer = styled.div`
   justify-content: space-between;
 `
 
-export const BannerHeading = styled.h1`
+export const BannerHeading = styled.p`
   font-size: 20px;
   width: 40%;
   color: #313131;

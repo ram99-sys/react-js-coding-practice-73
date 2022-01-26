@@ -111,7 +111,10 @@ class Home extends Component {
         {value => {
           const {darkTheme} = value
           return (
-            <SearchBarContainer border={darkTheme ? '#231f20' : '#e2e8f0'}>
+            <SearchBarContainer
+              border={darkTheme ? '#231f20' : '#e2e8f0'}
+              data-testid="searchButton"
+            >
               <SearchInput
                 type="search"
                 placeholder="Search"
@@ -121,6 +124,7 @@ class Home extends Component {
               />
               <SearchButton
                 type="button"
+                data-testid="searchButton"
                 onClick={this.onClickSearchButton}
                 bgColor={darkTheme ? '#212121' : '#f9f9f9'}
                 border={darkTheme ? '#231f20' : '#e2e8f0'}
@@ -153,7 +157,7 @@ class Home extends Component {
               No Search results found
             </ResultsNotFoundHeading>
             <Message color={darkTheme ? '#64748b' : '#475569'}>
-              Try different keywords or remove search filter
+              Try different key words or remove search filter
             </Message>
             <RetryButton type="button" onClick={this.onClickRetryButton}>
               Retry

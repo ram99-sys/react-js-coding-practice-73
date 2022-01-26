@@ -1,4 +1,4 @@
-import {formatDistanceToNow} from 'date-fns'
+import {formatDistanceToNow, formatDistance, format} from 'date-fns'
 import NxtwatchContext from '../../context/NxtwatchContext'
 import {
   Image,
@@ -19,12 +19,18 @@ const TrendingSectionData = props => {
   const {
     id,
     name,
-    profileImageUrl,
     publishedAt,
     thumbnailUrl,
     title,
     viewCount,
   } = trendingApiDetails
+
+  const date = new Date(publishedAt)
+  // console.log(date)
+  const formattedDate = format(date, 'yyyy,MM,dd')
+  console.log(
+    formatDistance(new Date(formattedDate), Date.now(), {addSuffix: true}),
+  )
 
   return (
     <NxtwatchContext.Consumer>
@@ -32,7 +38,9 @@ const TrendingSectionData = props => {
         const {darkTheme} = value
         return (
           <NavLink to={`/videos/${id}`}>
-            <TrendingSectionListItems>
+            <TrendingSectionListItems
+              bgColor={darkTheme ? '#0f0f0f' : '#f9f9f9'}
+            >
               <Image src={thumbnailUrl} alt="video thumbnail" />
               <ContentSection>
                 <Heading color={darkTheme ? '#ffffff' : '#181818'}>

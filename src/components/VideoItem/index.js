@@ -64,12 +64,10 @@ class VideoItem extends Component {
       subscriberCount,
       description,
       publishedAt,
-      thumbnailUrl,
       title,
       id,
       videoUrl,
       viewCount,
-      isSaved,
     } = videoItemDetails
 
     return (
@@ -78,8 +76,6 @@ class VideoItem extends Component {
           const {
             darkTheme,
             addingOrRemovingSavedVideo,
-            isVideoSaved,
-            savedVideosList,
             savedVideosListStatus,
           } = value
 

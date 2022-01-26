@@ -1,5 +1,7 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import {Redirect} from 'react-router-dom'
+import NxtwatchContext from '../../context/NxtwatchContext'
 import './index.css'
 import {
   LoginContainer,
@@ -38,16 +40,29 @@ class Login extends Component {
   renderUsername = () => {
     const {usernameInput} = this.state
     return (
-      <>
-        <Label htmlFor="username">USERNAME</Label>
-        <Input
-          type="text"
-          id="username"
-          placeholder="Username"
-          value={usernameInput}
-          onChange={this.onChangeUserInput}
-        />
-      </>
+      <NxtwatchContext.Consumer>
+        {value => {
+          const {darkTheme} = value
+
+          return (
+            <>
+              <Label
+                htmlFor="username"
+                color={darkTheme ? '#ffffff' : '#475569'}
+              >
+                USERNAME
+              </Label>
+              <Input
+                type="text"
+                id="username"
+                placeholder="Username"
+                value={usernameInput}
+                onChange={this.onChangeUserInput}
+              />
+            </>
+          )
+        }}
+      </NxtwatchContext.Consumer>
     )
   }
 
@@ -59,16 +74,29 @@ class Login extends Component {
   renderPassword = () => {
     const {passwordInput, checkboxInput} = this.state
     return (
-      <>
-        <Label htmlFor="password">PASSWORD</Label>
-        <Input
-          type={checkboxInput ? 'text' : 'password'}
-          id="password"
-          placeholder="Password"
-          value={passwordInput}
-          onChange={this.onChangePasswordInput}
-        />
-      </>
+      <NxtwatchContext.Consumer>
+        {value => {
+          const {darkTheme} = value
+
+          return (
+            <>
+              <Label
+                htmlFor="password"
+                color={darkTheme ? '#ffffff' : '#475569'}
+              >
+                PASSWORD
+              </Label>
+              <Input
+                type={checkboxInput ? 'text' : 'password'}
+                id="password"
+                placeholder="Password"
+                value={passwordInput}
+                onChange={this.onChangePasswordInput}
+              />
+            </>
+          )
+        }}
+      </NxtwatchContext.Consumer>
     )
   }
 
@@ -111,27 +139,48 @@ class Login extends Component {
 
   render() {
     const {checkboxInput, errorMessageText, errorMessage} = this.state
-    console.log(errorMessageText)
+    // console.log(errorMessageText)
+    const jwtToken = Cookies.get('jwt_token')
+
+    if (jwtToken !== undefined) {
+      return <Redirect to="/" />
+    }
 
     return (
-      <LoginContainer>
-        <LoginForm onSubmit={this.onSubmitForm}>
-          <Image src={LIGHT_THEME_IMAGE} alt="website logo" />
-          <InputContainer>{this.renderUsername()}</InputContainer>
-          <InputContainer>{this.renderPassword()}</InputContainer>
-          <CheckboxContainer>
-            <CheckBoxInput
-              type="checkbox"
-              id="checkbox"
-              onChange={this.onChangeCheckbox}
-              value={checkboxInput}
-            />
-            <CheckboxLabel htmlFor="checkbox">Show Password</CheckboxLabel>
-          </CheckboxContainer>
-          <LoginButton type="submit">Login</LoginButton>
-          {errorMessage && <Errortext>*{errorMessageText}</Errortext>}
-        </LoginForm>
-      </LoginContainer>
+      <NxtwatchContext.Consumer>
+        {value => {
+          const {darkTheme} = value
+
+          return (
+            <LoginContainer bgColor={darkTheme ? '#181818' : '#ffffff'}>
+              <LoginForm
+                onSubmit={this.onSubmitForm}
+                bgColor={darkTheme ? '#0f0f0f' : '#f8fafc'}
+              >
+                <Image src={LIGHT_THEME_IMAGE} alt="website logo" />
+                <InputContainer>{this.renderUsername()}</InputContainer>
+                <InputContainer>{this.renderPassword()}</InputContainer>
+                <CheckboxContainer>
+                  <CheckBoxInput
+                    type="checkbox"
+                    id="checkbox"
+                    onChange={this.onChangeCheckbox}
+                    value={checkboxInput}
+                  />
+                  <CheckboxLabel
+                    htmlFor="checkbox"
+                    color={darkTheme ? '#ffffff' : '#1e293b'}
+                  >
+                    Show Password
+                  </CheckboxLabel>
+                </CheckboxContainer>
+                <LoginButton type="submit">Login</LoginButton>
+                {errorMessage && <Errortext>*{errorMessageText}</Errortext>}
+              </LoginForm>
+            </LoginContainer>
+          )
+        }}
+      </NxtwatchContext.Consumer>
     )
   }
 }

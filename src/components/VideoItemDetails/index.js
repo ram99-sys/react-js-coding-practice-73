@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import {
-  HomeContainer,
+  VideoItemContainer,
   BodySection,
   SidebarContainer,
   BodyContainer,
@@ -164,7 +164,7 @@ class VideoItemDetails extends Component {
 
   render() {
     return (
-      <HomeContainer data-testid="home">
+      <VideoItemContainer data-testid="videoItemDetails">
         <Header />
         <BodySection>
           <SidebarContainer>
@@ -172,7 +172,7 @@ class VideoItemDetails extends Component {
           </SidebarContainer>
           <BodyContainer>{this.renderApiView()}</BodyContainer>
         </BodySection>
-      </HomeContainer>
+      </VideoItemContainer>
     )
   }
 }

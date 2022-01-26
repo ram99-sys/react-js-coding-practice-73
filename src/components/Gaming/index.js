@@ -4,7 +4,7 @@ import Loader from 'react-loader-spinner'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import NxtwatchContext from '../../context/NxtwatchContext'
 import {
-  HomeContainer,
+  GamingContainer,
   BodySection,
   SidebarContainer,
   DataContainer,
@@ -79,7 +79,10 @@ class Gaming extends Component {
         {value => {
           const {darkTheme} = value
           return (
-            <GamingApiListContainer bgColor={darkTheme ? '#0f0f0f' : '#f9f9f9'}>
+            <GamingApiListContainer
+              bgColor={darkTheme ? '#0f0f0f' : '#f9f9f9'}
+              data-testid="gaming"
+            >
               {gamingApiData.map(eachObject => (
                 <GamingApiData
                   key={eachObject.id}
@@ -167,7 +170,7 @@ class Gaming extends Component {
         {value => {
           const {darkTheme} = value
           return (
-            <HomeContainer data-testid="home">
+            <GamingContainer data-testid="gaming">
               <Header />
               <BodySection>
                 <SidebarContainer>
@@ -185,7 +188,7 @@ class Gaming extends Component {
                   <DataContainer>{this.renderApiData()}</DataContainer>
                 </BodyContainer>
               </BodySection>
-            </HomeContainer>
+            </GamingContainer>
           )
         }}
       </NxtwatchContext.Consumer>

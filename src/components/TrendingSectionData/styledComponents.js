@@ -1,9 +1,10 @@
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 
-export const TrendingSectionListItems = styled.div`
+export const TrendingSectionListItems = styled.li`
   padding: 40px;
   display: flex;
+  background-color: ${props => props.bgColor};
 `
 
 export const Image = styled.img`
@@ -15,7 +16,7 @@ export const ContentSection = styled.div`
   margin-top: 10px;
 `
 
-export const Heading = styled.h1`
+export const Heading = styled.p`
   font-size: 24px;
   margin-top: 10px;
   color: ${props => props.color};
@@ -46,7 +47,7 @@ export const DotContainer = styled.div`
 
 export const Dot = styled.p`
   font-size: 30px;
-  margin-top: -15px;
+  margin-top: -18px;
   margin-right: 2px;
   color: ${props => props.color};
 `

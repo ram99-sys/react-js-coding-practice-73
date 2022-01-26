@@ -1,4 +1,6 @@
 import {formatDistanceToNow} from 'date-fns'
+import NxtwatchContext from '../../context/NxtwatchContext'
+
 import {
   Image,
   TrendingSectionListItems,
@@ -18,7 +20,6 @@ const SavedVideosSectionData = props => {
   const {
     id,
     name,
-    profileImageUrl,
     publishedAt,
     thumbnailUrl,
     title,
@@ -26,24 +27,37 @@ const SavedVideosSectionData = props => {
   } = trendingApiDetails
 
   return (
-    <NavLink to={`/videos/${id}`}>
-      <TrendingSectionListItems>
-        <Image src={thumbnailUrl} alt="video thumbnail" />
-        <ContentSection>
-          <Heading>{title}</Heading>
-          <ChannelName>{name}</ChannelName>
-          <ViewsAndPublishedDate>
-            <NoOfViews>{viewCount} views</NoOfViews>
-            <DotContainer>
-              <Dot>.</Dot>
-              <PublishedDate>
-                {formatDistanceToNow(new Date(publishedAt))}
-              </PublishedDate>
-            </DotContainer>
-          </ViewsAndPublishedDate>
-        </ContentSection>
-      </TrendingSectionListItems>
-    </NavLink>
+    <NxtwatchContext.Consumer>
+      {value => {
+        const {darkTheme} = value
+        return (
+          <NavLink to={`/videos/${id}`}>
+            <TrendingSectionListItems>
+              <Image src={thumbnailUrl} alt="video thumbnail" />
+              <ContentSection>
+                <Heading color={darkTheme ? '#ffffff' : '#181818'}>
+                  {title}
+                </Heading>
+                <ChannelName color={darkTheme ? '#7e858e' : '#909090'}>
+                  {name}
+                </ChannelName>
+                <ViewsAndPublishedDate>
+                  <NoOfViews color={darkTheme ? '#7e858e' : '#909090'}>
+                    {viewCount} views
+                  </NoOfViews>
+                  <DotContainer>
+                    <Dot color={darkTheme ? '#7e858e' : '#909090'}>.</Dot>
+                    <PublishedDate color={darkTheme ? '#7e858e' : '#909090'}>
+                      {formatDistanceToNow(new Date(publishedAt))}
+                    </PublishedDate>
+                  </DotContainer>
+                </ViewsAndPublishedDate>
+              </ContentSection>
+            </TrendingSectionListItems>
+          </NavLink>
+        )
+      }}
+    </NxtwatchContext.Consumer>
   )
 }
 export default SavedVideosSectionData

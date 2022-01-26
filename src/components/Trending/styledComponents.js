@@ -40,11 +40,12 @@ export const TrendingHeading = styled.h1`
 `
 export const DataContainer = styled.div``
 
-export const TendingApiListContainer = styled.div`
+export const TendingApiListContainer = styled.ul`
   background-color: ${props => props.bgColor};
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  list-style-type: none;
 `
 export const LoaderContainer = styled.div`
   display: flex;

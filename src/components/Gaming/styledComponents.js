@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import {RiHeartPulseFill} from 'react-icons/ri'
 
-export const HomeContainer = styled.div`
+export const GamingContainer = styled.div`
   min-height: 100vh;
 `
 
@@ -13,12 +13,13 @@ export const SidebarContainer = styled.div`
 `
 export const DataContainer = styled.div``
 
-export const GamingApiListContainer = styled.div`
+export const GamingApiListContainer = styled.ul`
   background-color: ${props => props.bgColor};
   min-height: 100vh;
   display: flex;
   flex-wrap: wrap;
   padding: 40px;
+  list-style-type: none;
 `
 
 export const HeaderContainer = styled.div`
